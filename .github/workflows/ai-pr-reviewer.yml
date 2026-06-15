@@ -8,7 +8,7 @@ jobs:
   notify-bot:
     runs-on: ubuntu-latest
     steps:
-      - name: Send Webhook to Spring Boot App
+      - name: Send Webhook to Spring Boot Apps
         run: |
           curl -X POST https://zweab-182-253-135-48.run.pinggy-free.link/webhook/github \
           -H "Content-Type: application/json" \
