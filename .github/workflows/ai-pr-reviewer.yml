@@ -1,0 +1,26 @@
+name: Trigger AI Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  notify-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Webhook to Spring Boot Apps
+        run: |
+          curl -X POST <YOUR_WEBHOOK_URL> \
+          -H "Content-Type: application/json" \
+          -H "X-GitHub-Event: pull_request" \
+          -H "X-Hub-Signature-256: riyans230898" \
+          -d '{
+            "action": "${{github.event.action}}",
+            "repository": {
+              "full_name": "${{github.repository}}"
+            },
+            "pull_request": {
+              "number": ${{github.event.pull_request.number}},
+              "state": "${{github.event.pull_request.state}}"
+            }
+          }'
