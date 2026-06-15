@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Send Webhook to Spring Boot Apps
         run: |
-          curl -X POST <YOUR_WEBHOOK_URL> \
+          curl -X POST https://zweab-182-253-135-48.run.pinggy-free.link/webhook/github \
           -H "Content-Type: application/json" \
           -H "X-GitHub-Event: pull_request" \
           -H "X-Hub-Signature-256: riyans230898" \
